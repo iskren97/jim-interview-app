@@ -4,29 +4,32 @@
       "id": 1,
       "title": "Vanilla",
       "price": 2,
+      "addonPrice": 1.75,
       "addons": [
-        { "id": 1, "type": "Marshmallow", "price": 1.75 },
-        { "id": 2, "type": "Chocolate drizzle", "price": 1.75 },
-        { "id": 3, "type": "Skittles", "price": 1.75 }
+        { "id": 1, "type": "Marshmallow" },
+        { "id": 2, "type": "Chocolate drizzle" },
+        { "id": 3, "type": "Skittles" }
       ]
     },
     {
       "id": 2,
       "title": "Green tea",
       "price": 2,
+      "addonPrice": 1.5,
       "addons": [
-        { "id": 1, "type": "Honey", "price": 1.5 },
-        { "id": 2, "type": "Extra Powder", "price": 1.5 },
-        { "id": 3, "type": "M&M", "price": 1.5 }
+        { "id": 1, "type": "Honey" },
+        { "id": 2, "type": "Extra Powder" },
+        { "id": 3, "type": "M&M" }
       ]
     },
     {
       "id": 3,
       "title": "Strawberry",
       "price": 3,
+      "addonPrice": 1.5,
       "addons": [
-        { "id": 1, "type": "Fresh Fruit", "price": 1.5 },
-        { "id": 2, "type": "Gummy Bears drizzle", "price": 1.5 }
+        { "id": 1, "type": "Fresh Fruit" },
+        { "id": 2, "type": "Gummy Bears drizzle" }
       ]
     }
   ]

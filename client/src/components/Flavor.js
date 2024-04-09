@@ -19,7 +19,7 @@ const Flavor = ({ flavor, handleFlavorChange }) => {
           marginBottom: '0px',
         }}
       >
-        Pick Addons (${flavor.addons[0].price.toFixed(2)} each)*
+        Pick Addons (${flavor.addonPrice.toFixed(2)} each)*
       </p>
     </div>
   );

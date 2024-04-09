@@ -1,17 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { getTotalPrice } from '../utils/getTotalPrice';
 
 const Receipt = ({ selectedItems, orderDate }) => {
-  const getTotalPrice = () => {
-    return selectedItems.reduce((total, item) => {
-      const flavorPrice = item.flavor.price;
-      const addonPrice = item.addons.reduce(
-        (acc, addon) => acc + addon.price,
-        0
-      );
-
-      return total + flavorPrice + addonPrice;
-    }, 0);
-  };
+  const totalPrice = useMemo(() => {
+    return getTotalPrice(selectedItems);
+  }, [selectedItems]);
 
   return (
     <div
@@ -33,8 +26,9 @@ const Receipt = ({ selectedItems, orderDate }) => {
           <ul>
             {item.addons.map((addon, idx) => (
               <li key={idx}>
+                {console.log(addon)}
                 <p>
-                  {addon.type} - ${addon.price}
+                  {addon.type} - ${item.flavor.addonPrice}
                 </p>
               </li>
             ))}
@@ -42,7 +36,7 @@ const Receipt = ({ selectedItems, orderDate }) => {
         </div>
       ))}
 
-      <p style={{ marginTop: '30px' }}>Total: ${getTotalPrice().toFixed(2)}</p>
+      <p style={{ marginTop: '30px' }}>Total: ${totalPrice.toFixed(2)}</p>
     </div>
   );
 };
