@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { getTotalPrice } from '../../utils/getTotalPrice';
+import styles from './Receipt.module.css';
 
 const Receipt = ({ selectedItems, orderDate }) => {
   const totalPrice = useMemo(() => {
@@ -7,14 +8,7 @@ const Receipt = ({ selectedItems, orderDate }) => {
   }, [selectedItems]);
 
   return (
-    <div
-      style={{
-        border: '2px dashed',
-        padding: '20px',
-        width: '250px',
-        marginTop: '50px',
-      }}
-    >
+    <div className={styles.receiptContainer}>
       <h3>Receipt:</h3>
       <p>{orderDate}</p>
 
@@ -36,7 +30,7 @@ const Receipt = ({ selectedItems, orderDate }) => {
         </div>
       ))}
 
-      <p style={{ marginTop: '30px' }}>Total: ${totalPrice.toFixed(2)}</p>
+      <p className={styles.totalPrice}>Total: ${totalPrice.toFixed(2)}</p>
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.receiptContainer {
+  border: 2px dashed;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  margin-top: 50px;
+}
+
+.totalPrice {
+  margin-top: 30px;
+}
