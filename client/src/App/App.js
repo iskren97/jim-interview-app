@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './App.css';
-import Flavor from './components/Flavor/Flavor';
-import Receipt from './components/Receipt/Receipt';
-import useFetchData from './hooks/useFetchData';
-import dateFormatter from './helpers/dateFormatter';
+import Flavor from '../components/Flavor/Flavor';
+import Receipt from '../components/Receipt/Receipt';
+import useFetchData from '../hooks/useFetchData';
+import dateFormatter from '../helpers/dateFormatter';
+import styles from './App.module.css';
 
 const App = () => {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -59,12 +59,12 @@ const App = () => {
   };
 
   return (
-    <div style={{ marginLeft: '200px' }}>
+    <div className={styles.appContainer}>
       {!orderPlaced && (
         <>
           <h1>Pick the flavor</h1>
 
-          <div style={{ display: 'inline-grid' }}>
+          <div className={styles.innerContainer}>
             {data.map((flavor) => {
               return (
                 <>
@@ -77,7 +77,7 @@ const App = () => {
               );
             })}
 
-            <button className="orderBtn" onClick={handlePlaceOrder}>
+            <button className={styles.orderBtn} onClick={handlePlaceOrder}>
               Place Order
             </button>
           </div>

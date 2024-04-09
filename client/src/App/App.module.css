@@ -1,0 +1,13 @@
+.appContainer {
+  margin-left: 200px;
+}
+
+.innerContainer {
+  display: inline-grid;
+}
+
+.orderBtn {
+  width: 100px;
+  justify-self: center;
+  margin-top: 10px;
+}
