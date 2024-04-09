@@ -13,3 +13,7 @@
   gap: 5px;
   margin-left: 30px;
 }
+
+.flavorLabel {
+  cursor: pointer;
+}

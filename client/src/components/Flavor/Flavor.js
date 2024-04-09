@@ -8,10 +8,11 @@ const Flavor = ({ flavor, handleFlavorChange, handleAddonChange }) => {
       <input
         type="checkbox"
         name="flavor"
+        id={`flavor-${flavor.id}`}
         value={flavor.id}
         onChange={handleFlavorChange}
       />
-      <label htmlFor="pick-flavor">
+      <label className={styles.flavorLabel} htmlFor={`flavor-${flavor.id}`}>
         {flavor.title} (${flavor.price.toFixed(2)})
       </label>
 
