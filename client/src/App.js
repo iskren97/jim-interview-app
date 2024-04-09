@@ -11,38 +11,18 @@ const App = () => {
   const [orderDate, setOrderDate] = useState('');
   const { data } = useFetchData();
 
-  const handleFlavorChangeTest = (flavorId) => {
-    const flavor = data.find((item) => item.id === flavorId);
-    setSelectedItems((prevItems) => [...prevItems, { flavor, addons: [] }]);
-  };
-
-  const handleAddonChangeTest = (addonId, flavorId) => {
-    const addon = data[flavorId - 1].addons.find(
-      (addon) => addon.id === addonId
+  const handleFlavorChange = (flavorId) => {
+    const existingItemIndex = selectedItems.findIndex(
+      (item) => item.flavor.id === flavorId
     );
 
-    setSelectedItems((prevItems) =>
-      prevItems.map((item) => {
-        if (item.flavor.id === flavorId) {
-          return { ...item, addons: [...item.addons, addon] };
-        }
-
-        return item;
-      })
-    );
-  };
-
-  const handleFlavorChange = (event) => {
-    const flavorId = parseInt(event.target.value);
-    const isChecked = event.target.checked;
-
-    if (isChecked) {
-      const flavor = data.find((item) => item.id === flavorId);
-      setSelectedItems((prevItems) => [...prevItems, { flavor, addons: [] }]);
-    } else {
+    if (existingItemIndex !== -1) {
       setSelectedItems((prevItems) =>
         prevItems.filter((item) => item.flavor.id !== flavorId)
       );
+    } else {
+      const flavor = data.find((item) => item.id === flavorId);
+      setSelectedItems((prevItems) => [...prevItems, { flavor, addons: [] }]);
     }
   };
 

@@ -10,7 +10,7 @@ const Flavor = ({ flavor, handleFlavorChange, handleAddonChange }) => {
         name="flavor"
         id={`flavor-${flavor.id}`}
         value={flavor.id}
-        onChange={handleFlavorChange}
+        onChange={() => handleFlavorChange(flavor.id)}
       />
       <label className={styles.flavorLabel} htmlFor={`flavor-${flavor.id}`}>
         {flavor.title} (${flavor.price.toFixed(2)})
