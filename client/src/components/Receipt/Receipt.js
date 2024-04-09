@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { getTotalPrice } from '../utils/getTotalPrice';
+import { getTotalPrice } from '../../utils/getTotalPrice';
 
 const Receipt = ({ selectedItems, orderDate }) => {
   const totalPrice = useMemo(() => {

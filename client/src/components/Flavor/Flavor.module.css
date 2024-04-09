@@ -1,0 +1,15 @@
+.mainContainer {
+  margin-top: 25px;
+}
+
+.addonPriceParagraph {
+  margin-left: 30px;
+  margin-bottom: 0px;
+}
+
+.addonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-left: 30px;
+}

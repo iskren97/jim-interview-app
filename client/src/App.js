@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import Flavor from './components/Flavor';
-import Addon from './components/Addon';
-import Receipt from './components/Receipt';
+import Flavor from './components/Flavor/Flavor';
+import Receipt from './components/Receipt/Receipt';
 import useFetchData from './hooks/useFetchData';
 import dateFormatter from './helpers/dateFormatter';
 
@@ -11,6 +10,27 @@ const App = () => {
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [orderDate, setOrderDate] = useState('');
   const { data } = useFetchData();
+
+  const handleFlavorChangeTest = (flavorId) => {
+    const flavor = data.find((item) => item.id === flavorId);
+    setSelectedItems((prevItems) => [...prevItems, { flavor, addons: [] }]);
+  };
+
+  const handleAddonChangeTest = (addonId, flavorId) => {
+    const addon = data[flavorId - 1].addons.find(
+      (addon) => addon.id === addonId
+    );
+
+    setSelectedItems((prevItems) =>
+      prevItems.map((item) => {
+        if (item.flavor.id === flavorId) {
+          return { ...item, addons: [...item.addons, addon] };
+        }
+
+        return item;
+      })
+    );
+  };
 
   const handleFlavorChange = (event) => {
     const flavorId = parseInt(event.target.value);
@@ -71,19 +91,8 @@ const App = () => {
                   <Flavor
                     flavor={flavor}
                     handleFlavorChange={handleFlavorChange}
+                    handleAddonChange={handleAddonChange}
                   />
-
-                  <div className="addonContainer">
-                    {flavor.addons.map((addon) => {
-                      return (
-                        <Addon
-                          flavor={flavor}
-                          addon={addon}
-                          handleAddonChange={handleAddonChange}
-                        />
-                      );
-                    })}
-                  </div>
                 </>
               );
             })}
